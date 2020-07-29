@@ -6,7 +6,8 @@
         <li>Terdapat akses Admin dan User</li>
         <li>User dapat :</li>
         <ul>
-            <li>Register dan Login<br>
+            <li>Register dan Login</li>
+            <li>Ubah Profile</li>
             <li>Membuat artikel</li>
             <li>Seteleh di buat akan berstatus Draft, dan harus di Publish oleh Admin</li>
             <li>Jika berstatus Draft, user dapat Edit dan Delete</li>
