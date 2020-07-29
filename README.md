@@ -18,6 +18,5 @@
         <li>Seperti User</li>
         <li>Dapat Edit, Hapus, Draft/Publish</li>
     </ul>
-    <li>
 </ul>
 </p>
