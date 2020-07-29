@@ -57,6 +57,7 @@
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('dashboard.index') }}">{{ __('Dashboard') }}</a>
+                                        <a class="dropdown-item" href="{{ route('profile.index') }}">{{ __('Profile') }}</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
@@ -77,34 +78,35 @@
             <main class="py-4">
                 <div class="container">
                     <div class="row">
-                        @if ($posts->total() == 0)
-                            <div class="col-md-12 text-center">
-                                Artikel tidak tersedia
-                            </div>
-                        @else
-                            @foreach ($posts as $post)
-                                @if ($post->status == 1)
-                                    <div class="col-md-4 mb-4">
-                                        <div class="card">
+                        
+                        @foreach ($posts as $post)
+                            @if ($post->status == 1)
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <a href="{{ URL::to('/post/'.$post->id) }}">
+                                            <img class="card-img-top" src="{{ $post->thumbnail }}" alt="{{ $post->title }}">
+                                        </a>
+                                        <div class="card-body">
                                             <a href="{{ URL::to('/post/'.$post->id) }}">
-                                                <img class="card-img-top" src="{{ $post->thumbnail }}" alt="{{ $post->title }}">
+                                                <h5 class="card-title">{{ $post->title }}</h5>
                                             </a>
-                                            <div class="card-body">
-                                                <a href="{{ URL::to('/post/'.$post->id) }}">
-                                                    <h5 class="card-title">{{ $post->title }}</h5>
-                                                </a>
-                                                <p class="card-text">{{ Str::words(strip_tags($post->content), 10) }}</p>
-                                                <a href="{{ URL::to('/post/'.$post->id) }}" class="btn btn-primary">Read More</a>
-                                            </div>
+                                            <p class="card-text">{{ Str::words(strip_tags($post->content), 10) }}</p>
+                                            <a href="{{ URL::to('/post/'.$post->id) }}" class="btn btn-primary">Read More</a>
                                         </div>
                                     </div>
-                                @endif
-                            @endforeach
-                        @endif
+                                </div>
+                            @else
+                                <div class="col-md-12 text-center">
+                                    Artikel tidak tersedia
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
-                    <div class="row justify-content-center">
-                        {{ $posts->links() }}
-                    </div>
+                    @if ($posts->lastPage() > 1)
+                        <div class="row justify-content-center">
+                            {{ $posts->links() }}
+                        </div>
+                    @endif
                 </div>
             </main>
             <footer class="footer-copyright text-center py-3">

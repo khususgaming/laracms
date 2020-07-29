@@ -21,6 +21,7 @@ class PostController extends Controller
         ->where('id', '=', $id)
         ->where('status', '=', 1)
         ->first();
+        //dd($posts);
         if(is_null($post)) return redirect()->route('welcome');
         return view('post', compact('post'));
     }

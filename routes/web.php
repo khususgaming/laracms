@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('welcome');
-Route::get('/update/{id}','DashboardController@pord');
+Route::get('/dashboard/update/{id}','DashboardController@pord');
 Route::resource('dashboard','DashboardController');
+Route::resource('profile','ProfileController');
 Route::get('/post', 'PostController@index');
 Route::get('/post/{id}', 'PostController@view');

@@ -25,7 +25,7 @@
                 <div class="card-body">
                     @if(session()->get('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Selamat!</strong> {{ session()->get('success') }}
+                            {{ session()->get('success') }}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -62,13 +62,16 @@
                                                     Aksi
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    @if ($post->status == 1)
+                                                        <a class="dropdown-item" href="{{ URL::to('/post/'.$post->id) }}" target="_blank">View</a>
+                                                    @endif
                                                     <a class="dropdown-item" href="{{ route('dashboard.edit', $post->id) }}">Edit</a>
                                                     @if ($post->status == 0)
-                                                    <form action="{{ route('dashboard.destroy', $post->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="dropdown-item">Delete</button>
-                                                    </form>
+                                                        <form action="{{ route('dashboard.destroy', $post->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="dropdown-item">Delete</button>
+                                                        </form>
                                                     @endif
                                                 </div>
                                             </div>
@@ -88,6 +91,9 @@
                                                 Aksi
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                @if ($post->status == 1)
+                                                    <a class="dropdown-item" href="{{ URL::to('/post/'.$post->id) }}" target="_blank">View</a>
+                                                @endif
                                                 <a class="dropdown-item" href="{{ route('dashboard.edit', $post->id) }}">Edit</a>
                                                 <form action="{{ route('dashboard.destroy', $post->id) }}" method="POST">
                                                     @csrf
@@ -95,9 +101,9 @@
                                                     <button type="submit" class="dropdown-item">Delete</button>
                                                 </form>
                                                 @if ($post->status == 0)
-                                                    <a class="dropdown-item" href="{{ URL::to('/update/'.$post->id) }}">Publish</a>
+                                                    <a class="dropdown-item" href="{{ URL::to('/dashboard/update/'.$post->id) }}">Publish</a>
                                                 @elseif ($post->status == 1)
-                                                    <a class="dropdown-item" href="{{ URL::to('/update/'.$post->id) }}">Draft</a>
+                                                    <a class="dropdown-item" href="{{ URL::to('/dashboard/update/'.$post->id) }}">Draft</a>
                                                 @endif
                                             </div>
                                         </div>

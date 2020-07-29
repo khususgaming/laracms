@@ -18,6 +18,7 @@ class DashboardController extends Controller
     public function index()
     {
         $posts = DB::table('posts')->orderBy('id', 'DESC')->paginate(50);
+        //dd($posts);
         if($posts->currentPage() > $posts->lastPage()) return redirect()->route('dashboard.index');
         return view('dashboard.index', compact('posts'));
     }
