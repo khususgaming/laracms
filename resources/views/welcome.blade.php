@@ -78,9 +78,10 @@
             <main class="py-4">
                 <div class="container">
                     <div class="row">
-                        
+                        @php $inc_post = 0; @endphp
                         @foreach ($posts as $post)
                             @if ($post->status == 1)
+                                @php $inc_post++; @endphp
                                 <div class="col-md-4 mb-4">
                                     <div class="card">
                                         <a href="{{ URL::to('/post/'.$post->id) }}">
@@ -95,12 +96,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            @else
-                                <div class="col-md-12 text-center">
-                                    Artikel tidak tersedia
-                                </div>
                             @endif
                         @endforeach
+                        @if ($inc_post == 0)
+                            <div class="col-md-12 text-center">
+                                Artikel tidak tersedia
+                            </div>
+                        @endif
                     </div>
                     @if ($posts->lastPage() > 1)
                         <div class="row justify-content-center">
