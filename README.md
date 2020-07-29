@@ -1,5 +1,5 @@
 <h1>Lara CMS</h1>
-<p>CMS sederhana menggunakan Laravel (Framework PHP) dan TinyMCE (WYSIWYG HTML Editor).<br>
+<p>CMS sederhana menggunakan Laravel (Framework PHP), Bootstrap (Framework CSS) dan TinyMCE (WYSIWYG HTML Editor).<br>
     <i>Apa saja yang ada di Lara CMS?</i>
     <ul>
         <li>Authentikasi bawaan Laravel</li>
