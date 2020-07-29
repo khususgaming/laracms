@@ -9,13 +9,13 @@
             <li>Register dan Login<br>
             <li>Membuat artikel</li>
             <li>Seteleh di buat akan berstatus Draft, dan harus di Publish oleh Admin</li>
-            <li>Jika berstatus Draft, user dapat Edit dan Hapus</li>
+            <li>Jika berstatus Draft, user dapat Edit dan Delete</li>
             <li>Jika berstatus Published, user hanya dapat Edit</li>
         </ul>
         <li>Admin dapat :</li>
         <ul>
             <li>Seperti User</li>
-            <li>Dapat Edit, Hapus, Draft/Publish</li>
+            <li>Dapat Edit, Delete, Draft/Publish</li>
         </ul>
     </ul>
 </p>
