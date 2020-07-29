@@ -37,7 +37,7 @@
                     </form>
                     @if ($errors->any())
                         <div class="alert alert-danger p-3 m-3">
-                            Ada beberapa masalah dengan input Anda.<br>
+                            Ada beberapa masalah dengan input anda:<br>
                             <ul>
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
