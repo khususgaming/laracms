@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>Password Lama *:</strong>
+                                    <strong>Password Lama <span class="text-danger">*</span>:</strong>
                                     <input type="password" name="passwordlama" class="form-control" placeholder="Password Lama">
                                 </div>
                             </div>
